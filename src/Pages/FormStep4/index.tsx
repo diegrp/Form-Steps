@@ -1,11 +1,34 @@
+import { useEffect } from "react";
 import { Head } from "../../Routers/Head";
 import { Theme } from "../../Components/Theme";
+import { useForm, FormActions } from "../../Contexts/FormContext";
+import { useNavigate } from "react-router-dom";
 import * as C from "./styles";
 
 // FormStep3: Quarta etapa do formulário (finalização do cadastro)
 
 export const FormStep4 = () => {
-  
+
+  // Hook e router navigate
+
+  const { state, dispatch } = useForm();
+  const navigate = useNavigate();
+
+  // Atualiza o step do formulário e verifica todos nossos states
+
+  useEffect(() => {
+    dispatch({
+      type:FormActions.setCurrentStep,
+      payload: 4
+    })
+  },[dispatch, navigate]);
+
+  useEffect(() => {
+    if(Object.values(state).includes("")){
+      navigate("/");
+    }
+  },[navigate, state]);
+
   return(
     <Theme>
       <C.Container>
