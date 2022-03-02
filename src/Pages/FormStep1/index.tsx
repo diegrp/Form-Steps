@@ -3,6 +3,7 @@ import { Head } from "../../Routers/Head";
 import { useNavigate } from "react-router-dom";
 import { InputArea } from "../../Components/InputArea";
 import { Theme } from "../../Components/Theme";
+import { Error } from "../../Components/InputArea/Error";
 import { useForm, FormActions } from "../../Contexts/FormContext";
 import * as C from "./styles";
 
@@ -89,6 +90,10 @@ export const FormStep1 = () => {
           autoFocus
           autoComplete="off"
         />
+
+        {/* Retorna errors de acorda com a verficação */}
+        {error.name !== "" && <Error error={error}/>}
+        {error.empty !== "" && <Error error={error}/>}
 
         <button onClick={handleNextStep}>Próximo</button>
 
