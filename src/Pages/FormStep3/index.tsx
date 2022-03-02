@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Head } from "../../Routers/Head";
 import { Theme } from "../../Components/Theme";
 import { InputArea } from "../../Components/InputArea";
+import { Error } from "../../Components/InputArea/Error";
 import { useForm, FormActions } from "../../Contexts/FormContext";
 import * as C from "./styles";
 
@@ -112,6 +113,10 @@ export const FormStep3 = () => {
           autoComplete="off"
         />
 
+        {/* Retorna errors de acorda com a verficação */}
+        {error.email !== "" && <Error error={error}/>}
+        {error.empty !== "" && <Error error={error}/>}
+
         <InputArea 
           label="Qual o seu github?" 
           name="github"
@@ -123,6 +128,10 @@ export const FormStep3 = () => {
           placeholder="Seu github"
           autoComplete="off"
         />
+        
+        {/* Retorna errors de acorda com a verficação */}
+        {error.github !== "" && <Error error={error}/>}
+        {error.empty !== "" && <Error error={error}/>}
 
         <Link to="/step2" className="backButton">Voltar</Link>
         <button onClick={handleNextStep}>Finalizar</button>
