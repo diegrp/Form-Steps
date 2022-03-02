@@ -7,7 +7,7 @@ type Props = {
 
 // FormSteps: Header e Description 
 
-export const Header = ( { title, description }: Props ): null => {
+export const Head = ( { title, description }: Props ): null => {
   
   useEffect(() => {
     document.title = `Form Steps | ${title}` || "";
