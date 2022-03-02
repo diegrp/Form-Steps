@@ -1,8 +1,10 @@
+import { Router } from "./Routers/router";
+
+// FormSteps: app render final
+
 const App = () => {
-  return (
-  <div>
-    ...
-  </div>
+  return(
+      <Router/>
   )
 }
 
